@@ -1,3 +1,4 @@
+import logging
 import os
 
 
@@ -10,7 +11,7 @@ def get_files_info(working_directory: str, directory: str = ".") -> str:
         valid_target_dir = (
             os.path.commonpath([working_dir_abs, target_dir]) == working_dir_abs
         )
-        print(target_dir)
+
         if not valid_target_dir:
             return f'Error: Cannot list "{directory}" as it is outside the permitted working directory'
 
@@ -33,4 +34,5 @@ def get_files_info(working_directory: str, directory: str = ".") -> str:
         return result_string
 
     except Exception as e:
+        logging.exception("Standard library error")
         return f"Error: {e}"
