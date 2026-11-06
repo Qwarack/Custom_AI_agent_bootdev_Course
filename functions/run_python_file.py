@@ -16,7 +16,7 @@ def run_python_file(
         )
 
         if not valid_target_dir:
-            return f'Error: Cannot list "{file_path}" as it is outside the permitted working directory'
+            return f'Error: Cannot execute "{file_path}" as it is outside the permitted working directory'
 
         if not os.path.isfile(target_dir):
             return f'Error: "{file_path}" does not exist or is not a regular file'
