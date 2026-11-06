@@ -11,6 +11,7 @@ class Calculator:
             "*": lambda a, b: a * b,
             "/": lambda a, b: a / b,
         }
+        # Define higher precedence for multiplicative operators
         self.precedence: dict[str, int] = {
             "+": 1,
             "-": 1,
