@@ -1,6 +1,28 @@
 import logging
 import os
 
+schema_write_file = {
+    "type": "function",
+    "function": {
+        "name": "write_file",
+        "description": "Writes content to a file relative to the working directory, overwriting existing content and creating parent directories as needed.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "file_path": {
+                    "type": "string",
+                    "description": "Path of the file to write, relative to the working directory.",
+                },
+                "content": {
+                    "type": "string",
+                    "description": "Text content to write to the file.",
+                },
+            },
+            "required": ["file_path", "content"],
+        },
+    },
+}
+
 
 def write_file(working_directory: str, file_path: str, content: str) -> str:
     try:

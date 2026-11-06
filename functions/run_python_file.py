@@ -2,6 +2,29 @@ import logging
 import os
 import subprocess
 
+schema_run_python_file = {
+    "type": "function",
+    "function": {
+        "name": "run_python_file",
+        "description": "Executes a Python file relative to the working directory with optional arguments, returning its standard output, standard error, and any nonzero exit code.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "file_path": {
+                    "type": "string",
+                    "description": "Path of the Python file to execute, relative to the working directory.",
+                },
+                "args": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Optional command-line arguments to pass to the Python file.",
+                },
+            },
+            "required": ["file_path"],
+        },
+    },
+}
+
 
 def run_python_file(
     working_directory: str, file_path: str, args: list[str] | None = None
